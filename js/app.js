@@ -44,7 +44,7 @@
 
                  $(window).on("resize", resetVideoHeight);
              });
- });
+
 
 
              function init() {
@@ -53,3 +53,5 @@
                      // yt api is ready
                  });
              }
+     
+      });
