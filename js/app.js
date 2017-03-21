@@ -31,7 +31,7 @@
 
                              $("#results").append(tplawesome(data, [{
                                  "title":item.snippet.title,
-                                 "videoid":id.videoId
+                                 "videoid":item.id.videoId
                              }]));
 
                          });
