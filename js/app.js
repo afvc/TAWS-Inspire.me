@@ -16,7 +16,7 @@ $(function() {
        request.execute(function(response) {
           console.log(response);
           var results=response.result;
-          $.each(results, funciont(index, item){
+          $.each(results, function(index, item){
             //$("#results").append(item.id.videoId+" "+item.snippet.title+"<br>");
           $.get("tpl/item.html", function(data){
 
