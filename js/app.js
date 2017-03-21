@@ -25,7 +25,7 @@
                      console.log(response);
                      var results = response.result;
                      console.dir(results);
-
+/*
                       $.each(results.items, function (index, item) {
 
                          console.log("is showing" + item.snippet.title + "  " + videoID);
@@ -39,7 +39,7 @@
 
                          });
 
-                     }); 
+                     }); */
                  });
 
                  $(window).on("resize", resetVideoHeight);
