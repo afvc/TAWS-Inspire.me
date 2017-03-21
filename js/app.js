@@ -26,7 +26,7 @@
                      var results = response.result;
                      console.dir(results);
 
-                   /*  $.each(results, function (index, item) {
+                      $.each(results, function (index, item) {
 
                          console.log("is showing" + item.snippet.title + "  " + videoID);
 
@@ -39,12 +39,12 @@
 
                          });
 
-                     });*/
+                     }); 
                  });
 
                  $(window).on("resize", resetVideoHeight);
              });
-
+ });
 
 
              function init() {
