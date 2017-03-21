@@ -1,4 +1,4 @@
-function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})}return res}
+//function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})}return res}
 
 $(function() {
     $("form").on("submit", function(e) {
@@ -27,12 +27,10 @@ $("#results").append(data);
        });
     });
     
-    $(window).on("resize", resetVideoHeight);
+    //$(window).on("resize", resetVideoHeight);
 });
 
-function resetVideoHeight() {
-    $(".video").css("height", $("#results").width() * 9/16);
-}
+ 
 
 function init() {
     gapi.client.setApiKey("AIzaSyAX9MNHEELUlStowPlfYfbzpCoIwUBgx2M");
