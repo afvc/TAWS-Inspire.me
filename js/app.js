@@ -15,6 +15,15 @@ $(function() {
        // execute the request
        request.execute(function(response) {
           console.log(response);
+          var results=response.result;
+          $.each(results, funciont(index, item){
+            //$("#results").append(item.id.videoId+" "+item.snippet.title+"<br>");
+          $.get("tpl/item.html", function(data){
+
+$("#results").append(data);
+
+          });
+          });
        });
     });
     
