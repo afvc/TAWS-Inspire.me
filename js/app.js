@@ -36,7 +36,7 @@
 
                          });
                          });
-resetVideoHeight();
+resetVideoHeight();//makes videos responsive
                      });  
                  });
 
