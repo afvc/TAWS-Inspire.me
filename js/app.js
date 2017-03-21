@@ -24,7 +24,7 @@
                  request.execute(function (response) {
                      console.log(response);
                      var results = response.result;
-                  
+                   $("#results").html("")
                       $.each(results.items, function (index, item) {
 
                          $.get("tpl/item.html", function (data) {
@@ -35,13 +35,18 @@
                              }]));
 
                          });
-
+                         });
+resetVideoHeight();
                      });  
                  });
 
                  $(window).on("resize", resetVideoHeight);
              });
+function resetVideoHeight(){
 
+$(".video").css("height", $("#results").width()*9/16)
+
+}
 
 
              function init() {
@@ -51,4 +56,4 @@
                  });
              }
      
-      });
+     
