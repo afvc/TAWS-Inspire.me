@@ -24,8 +24,9 @@
                  request.execute(function (response) {
                      console.log(response);
                      var results = response.result;
+                     console.dir(results);
 
-                     $.each(results, function (index, item) {
+                   /*  $.each(results, function (index, item) {
 
                          console.log("is showing" + item.snippet.title + "  " + videoID);
 
@@ -34,11 +35,11 @@
                              $("#results").append(tplawesome(data, [{
                                  "title": item.snippet.title,
                                  "videoid": id.videoID
-                             }]) );
+                             }]));
 
                          });
 
-                     });
+                     });*/
                  });
 
                  $(window).on("resize", resetVideoHeight);
