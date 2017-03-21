@@ -24,22 +24,19 @@
                  request.execute(function (response) {
                      console.log(response);
                      var results = response.result;
-                     console.dir(results);
-/*
+                  
                       $.each(results.items, function (index, item) {
-
-                         console.log("is showing" + item.snippet.title + "  " + videoID);
 
                          $.get("tpl/item.html", function (data) {
 
                              $("#results").append(tplawesome(data, [{
-                                 "title": item.snippet.title,
-                                 "videoid": id.videoID
+                                 "title":item.snippet.title,
+                                 "videoid":id.videoId
                              }]));
 
                          });
 
-                     }); */
+                     });  
                  });
 
                  $(window).on("resize", resetVideoHeight);
