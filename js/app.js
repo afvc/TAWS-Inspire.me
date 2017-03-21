@@ -26,7 +26,7 @@
                      var results = response.result;
                      console.dir(results);
 
-                      $.each(results, function (index, item) {
+                      $.each(results.items, function (index, item) {
 
                          console.log("is showing" + item.snippet.title + "  " + videoID);
 
