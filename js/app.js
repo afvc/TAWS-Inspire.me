@@ -18,13 +18,11 @@ $(function() {
           var results=response.result;
           $.each(results, function(index, item){
             //$("#results").append(item.id.videoId+" "+item.snippet.title+"<br>");
-          $.get("tpl/item.html", function(data){
+                $.get("tpl/item.html", function(data){
 
-$("#results").append(data);
-
+                $("#results").append(data); });
+             });
           });
-          });
-       });
     });
     
     //$(window).on("resize", resetVideoHeight);
