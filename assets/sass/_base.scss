@@ -1,0 +1,114 @@
+    /*
+ * BASE STYLES
+ * ================================ */
+    
+    //box-sizing model = margin and paddgin inside element so they don't increase width of component.
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+    
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+    }
+    
+    html {}
+    
+    .hidden {
+        display: none;
+    }
+    
+    ul li {
+        list-style-type: none;
+        margin: 5px;
+    }
+    
+    ul .title {
+        padding: 0;
+    }
+    
+    body {
+        cursor: crosshair;
+    }
+    
+    label {
+        font-size: 1rem;
+    }
+    
+    *:focus {
+        outline: none;
+    } 
+    /*------------------------------------*\
+  #Responsive_window
+\*------------------------------------*/
+    
+    //section that is substituting main funcitons of resizing
+    .section-resized {
+        padding-top: 50px*2;
+        padding-bottom: 100px;
+        width: 960px;
+        max-width: 100%;
+        margin: auto;
+        @include breakpoint ($min: xxs) {
+            width: 250px;
+            max-width: 100%;
+        }
+        @include breakpoint ($min: xs) {
+            width: 380px;
+            max-width: 100%;
+        }
+        @include breakpoint ($min: sm) {
+            width: 480px;
+            max-width: 100%;
+        }
+        @include breakpoint ($min: md) {
+            width: 620px;
+            max-width: 100%;
+        }
+        @include breakpoint ($min: lg) {
+            width: 1100px;
+            max-width: 100%;
+        }
+        @include breakpoint ($min: xl) {
+            width: 1180px;
+            max-width: 100%;
+        }
+    }
+    
+    .section-resized-extra {
+        @extend .section-resized;
+        min-height: 100vh;
+    }
+    /*------------------------------------*\
+  #BODY
+\*------------------------------------*/
+    
+    body {
+        min-height: 100%;
+        height: auto;
+        //background-color:$light;
+        // color: $black;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        @extend .text;
+    }
+    /*------------------------------------*\
+  #LINKS
+\*------------------------------------*/
+    
+    a {
+        color: $black;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        &:hover {
+            text-decoration: none;
+            color: $purple;
+        }
+    }
