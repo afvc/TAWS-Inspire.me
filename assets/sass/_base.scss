@@ -116,9 +116,22 @@
   #BGS
 \*------------------------------------*/
     
-    bg-pattern {
-        background-image: url("4.svg");
+    .bg__image {
+
+    background-image: url("4.svg");
     background-size: cover;
     background-repeat: repeat-x;
     background-position: center;
+    }
+
+ .bg__pattern {
+    @extend .bg__image;
+    background-image: url("4.svg");
+ 
+    }
+
+ .bg__purple {
+   @extend .bg__image;
+    background-image: url("5.svg");
+ 
     }
