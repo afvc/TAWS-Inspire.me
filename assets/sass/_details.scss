@@ -1,0 +1,131 @@
+/*------------------------------------*\
+  #Z_INDEX
+\*------------------------------------*/
+
+.z-top {
+    z-index: 100;
+}
+
+.z-down {
+    z-index: 100;
+}
+
+
+/*------------------------------------*\
+  #ALIGNMENTS_AND_MARGINS
+\*------------------------------------*/
+
+.no-padding {
+    padding: 0px;
+}
+
+.no-padding-top {
+    padding-top: 0px;
+}
+
+.li-pad {
+    padding: 0 25px 15px 25px;
+}
+ 
+
+.no-margin {
+    margin: 0px;
+}
+
+.no-margin-top {
+    margin-top: 0px;
+}
+
+.no-margin-bot {
+    margin-bottom: 0px;
+}
+
+.min-margin-top {
+    margin-top: 3.7vh;
+    @include breakpoint($min: xxs) {
+        margin-top: 0vh;
+    }
+}
+
+.sm-margin-top {
+    @include breakpoint($min: sm) {
+        margin-top: 7vh;
+    }
+    @include breakpoint($min:md) {
+        margin-top: 7vh;
+    }
+    @include breakpoint ($min:xxs) {
+        margin-top: 0
+    }
+    ;
+}
+
+.sm-margin-tx {
+    @include breakpoint($min: md) {
+        margin-top: 7vh;
+    }
+    @include breakpoint($min:lg) {
+        margin-top: 7vh;
+    }
+    @include breakpoint($min:xl) {
+        margin-top: 7vh;
+    }
+    @include breakpoint ($min:xxs) {
+        margin-top: 0vh
+    }
+    ;
+}
+
+.margin-bottom-lg {
+    @include breakpoint ($min: xl) {
+        margin-bottom: 25px;
+    }
+}
+
+
+/*------------------------------------*\
+  #INDENTS
+\*------------------------------------*/
+
+.sm-indent {
+    text-indent: 50px;
+}
+
+.quote-indent {
+    text-indent: 100px;
+}
+
+
+
+/*------------------------------------*\
+  #ORDER
+\*------------------------------------*/
+
+
+ .order-xs-1st {
+     order: 1;
+     @media (min-width: 768px) {
+         order: 1;
+     }
+ }
+ 
+ .order-xs-2nd {
+     order: 2;
+     @media (min-width: 768px) {
+         order: 3;
+     }
+ }
+
+ .order-xs-3rd {
+     order: 3;
+     @media (min-width: 768px) {
+         order: 2;
+     }
+ }
+ 
+ .order-xs-4th {
+     order: 4;
+     @media (min-width: 768px) {
+         order: 4;
+     }
+ }
