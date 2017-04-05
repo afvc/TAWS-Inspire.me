@@ -43,7 +43,7 @@
     
     *:focus {
         outline: none;
-    } 
+    }
     /*------------------------------------*\
   #Responsive_window
 \*------------------------------------*/
@@ -111,4 +111,14 @@
             text-decoration: none;
             color: $purple;
         }
+    }
+    /*------------------------------------*\
+  #BGS
+\*------------------------------------*/
+    
+    bg-pattern {
+        background-image: url("4.svg");
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-position: center;
     }
