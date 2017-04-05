@@ -47,7 +47,8 @@ resetVideoHeight();
      });
 
 function resetVideoHeight(){
-    $(".video").css("height", $("#results").width()*9/16);
+    $(".video").css("max-width", "500px");
+    $(".video").css("width", "100%");
 }
 
 function init() {

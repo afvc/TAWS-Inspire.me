@@ -14,13 +14,13 @@ font-size:0.8rem;}
         border-top: 2px solid transparent;
         border-bottom: 2px solid black;
         left:10px;
-        width: 50%;
+        width: 100%;
     &:focus {
         outline: 0;
         box-shadow: none;
         border: none;
         border-top: 1px solid transparent;
-        border-bottom: 3px solid white;
+        border-bottom: 3px solid $purple;
     }}
 
 
