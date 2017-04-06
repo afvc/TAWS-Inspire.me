@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>		
-        <title>Your awesome Youtube search engine</title>
+        <title>Inspire Me</title>
         <meta charset="UTF-8" />					
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Awesome videos!" />
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/flexboxg.min.css">
+     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+
     </head>
     <body>
-        <header>
-            <h1 class="w100 text-center"><a href="index.html">YouTube Viral Search</a></h1>
-        </header>
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <form action="#">
-                    <p><input type="text" id="search" placeholder="Type something..." autocomplete="off" class="form-control" /></p>
-                    <p><input type="submit" value="Search" class="form-control btn btn-primary w100"></p>
-                </form>
-                <div id="results"></div>
-            </div>
-        </div>
         
+           <section class="section-resized">
+            <div class="row center-xs">
+            <div class="col-xs-12">
+                <p class="title"><a href="index.html">Inspire Me</a></p>
+                 </div>
+       </div>
+            <div class="row around-xs">
+                <div class="col-xs-12">
+                    <form action="#">
+                        <div class="row around-xs bottom-xs">
+                        <div class="col-xs-6 col-sm-8">
+                         <label class="input-anim">
+                           
+                            <input type="text" id="search" placeholder="Write here..." class="text">
+                        </label>
+                        
+                            </div>
+                            
+                            <div id="checkApis">
+                                <input type="checkbox" name="api" value="Youtube" checked id="CheckYoutube"> Youtube<br>
+                                <input type="checkbox" name="api" value="Behance" id="CheckBehance"> Behance<br>
+                                <input type="checkbox" name="api" value="Unsplash" id="CheckUnsplash"> Usplash<br>
+                                <input type="checkbox" name="api" value="ColourLovers" id="CheckColours"> ColourLovers
+                            </div>
+                            
+                <div class="col-xs-6 col-sm-3">
+                         <input type="submit" value="Magic!"  class=" btn-blue">
+                             </div></div>
+                    </form>
+                </div>
+            </div>
+               
+            <h3 id="erros"></h3>
+           
+            <div class="row">
+                <div id="resultsYoutube" class="col-xs-12 col-md-4"></div>
+                <div id="resultsBehance" class="col-xs-12 col-md-4"></div>
+                <div id="resultsUnsplash" class="col-xs-12 col-md-4"></div>
+                <div id="resultsColours" class="col-xs-12 col-md-3"></div>
+            </div>
+       
+        </section>
         <!-- scripts -->
         <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="js/app.js"></script>

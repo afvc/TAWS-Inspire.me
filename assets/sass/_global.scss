@@ -1,0 +1,51 @@
+//SPACING//
+$spacing--x-small: 0.3125rem; //5px;
+$spacing--small: 0.6250rem; //10px
+$spacing--medium: 0.9375rem; //15px
+$spacing--large: 1.250rem; //20px
+$spacing--x-large: 1.5625rem; //25px
+$spacing--xx-large: 1.875rem; //30px
+
+
+
+
+/* COLOR VARIABLES */
+
+ 
+$black: #0f0f27;
+$grey: #444;
+$blue: #489CD5;
+$light-grey: #EBEBEB;
+$light: #E0E0E0;
+$white: #ececec;
+$green-light: #5ef291;
+$green-dark: #259073;
+$purple: #9675B4;
+
+/* BACKGROUNDS */
+.color-1{
+    background:$green-light;
+ border:10px solid $black;}
+
+.color-2{
+    background:$purple;
+ border:10px solid $black;}
+
+.color-3{
+    background:$green-dark;
+ border:10px solid $black;}
+
+.color-4{ background:$light-grey;
+ border:10px solid $black;}
+
+.color-5{ background:$black;
+ border:10px solid $white;
+ 
+}
+
+.shadow
+{
+    background:rgba(15, 15, 39, 0.02);
+padding: 10px;}
+
+
