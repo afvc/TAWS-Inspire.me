@@ -75,6 +75,8 @@ $(function () {
             error: console.log("Erro Behance")
         });
      })
+     
+       
 });
 
 function processaDadosB(response){
@@ -91,8 +93,10 @@ function processaDadosB(response){
 
             });
         });
-}
+;}
 
+
+ 
 //UNSPLASH-------------------------------------------------------
 
 //COLOURLOVERS---------------------------------------------------
