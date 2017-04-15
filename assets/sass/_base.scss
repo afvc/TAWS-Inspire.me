@@ -44,11 +44,10 @@
     *:focus {
         outline: none;
     }
-
-.margin_bot{
-margin-bottom: 2vh;
-
-}
+    
+    .margin_bot {
+        margin-bottom: 2vh;
+    }
     /*------------------------------------*\
   #Responsive_window
 \*------------------------------------*/
@@ -86,18 +85,16 @@ margin-bottom: 2vh;
         }
     }
     
-.section__begin{
- padding-bottom: 10vh;
- padding-top: 10vh;
-    
-      @include breakpoint ($min: xs) {
-             padding-bottom: 5vh;
+    .section__begin {
+        padding-bottom: 10vh;
+        padding-top: 10vh;
+        @include breakpoint ($min: xs) {
+            padding-bottom: 5vh;
         }
         @include breakpoint ($min: sm) {
             padding-bottom: 5vh;
         }
-}
-    
+    }
     /*------------------------------------*\
   #BODY
 \*------------------------------------*/
@@ -116,7 +113,6 @@ margin-bottom: 2vh;
 \*------------------------------------*/
     
     a {
-        
         text-decoration: none;
         transition: all 0.2s ease-in-out;
         cursor: pointer;
@@ -125,38 +121,42 @@ margin-bottom: 2vh;
             color: $purple;
         }
     }
-
- 
     /*------------------------------------*\
   #BGS
 \*------------------------------------*/
     
     .bg__image {
-
-    background-image: url("4.svg");
-    background-size: cover;
-    background-repeat: repeat-x;
-    background-position: center;
+        background-image: url("4.svg");
+        background-size: cover;
+        background-repeat: repeat-x;
+        background-position: center;
     }
-
- .bg__pattern {
-    @extend .bg__image;
-    background-image: url("4.svg");
- 
+    
+    .bg__pattern {
+        @extend .bg__image;
+        background-image: url("4.svg");
     }
-
- .bg__purple {
-   @extend .bg__image;
-    background-image: url("5.svg");
- 
+    
+    .bg__purple {
+        @extend .bg__image;
+        background-image: url("5.svg");
     }
-
-
     /*------------------------------------*\
   #RESULTS
 \*------------------------------------*/
     
-.results {
-margin-top:5vh;
+    .results {
+        margin-top: 5vh;
+    }
+    
+    .results_responsive {
+      
+        width: 100%;
+      
+    }
 
-}
+.results_links {
+      
+      
+        color:$black;
+    }
