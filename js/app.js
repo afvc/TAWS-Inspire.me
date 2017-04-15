@@ -79,6 +79,17 @@ $(function(){
              //UNSPLASH-------------------------------------------------------
              if($("#CheckUnsplash").is( ":checked" )){
                  
+                 
+                $.ajax({
+                    url: searchLink_Unsplash+"?tags="+encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
+                    dataType: "jsonp",
+                    timeout: 1500,
+                    //jsonpCallback: processaDadosB,
+                    success: processaDadosU,
+                    error: ErroUnsplash
+                });   
+                 
+                 
              }
              
              
@@ -150,6 +161,30 @@ function ErroBehance(response){
 
  
 //UNSPLASH-------------------------------------------------------
+var searchLink_Unsplash = "https://unsplash.com";
+
+function processaDadosU(response){
+    console.log(response);
+    var results = response.result;
+    $("#resultsUnsplash").html("");
+        $.each(response.photos, function (index, item) {
+            $.get("tpl/itemUnsplash.html", function (data) {
+                $(tplawesome(data, [{
+                    "imagem":item.urls.regular,
+                    "criador":item.user.name,
+                              
+                }])).appendTo("#resultsUnsplash");
+
+            });
+        });
+;}
+
+
+function ErroUnsplash(response){
+    if(response==null){
+        $("#resultsUnsplash").html("O Unsplash não conseguiu encontrar fotografias");
+    }
+}
 
 //COLOURLOVERS---------------------------------------------------
 var searchLink_ColourL="http://www.colourlovers.com/api/palettes/keywords/search/";
