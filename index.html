@@ -1,61 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>		
-        <title>Inspire Me</title>
-        <meta charset="UTF-8" />					
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/flexboxg.min.css">
-     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
-    </head>
-    <body>
-        
-           <section class="section-resized">
+<head>
+    <title>Inspire Me</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/flexboxg.min.css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+
+</head>
+
+<body>
+    <div class="bg__purple">
+        <section class="section-resized">
             <div class="row center-xs">
-            <div class="col-xs-12">
-                <p class="title"><a href="index.html">Inspire Me</a></p>
-                 </div>
-       </div>
-            <div class="row around-xs">
-                 <div class="col-xs-12">
-                    <form action="#">
-                        <div class="row around-xs bottom-xs">
-                        <div class="col-xs-4 col-sm-6">
-                         <label class="input-anim">
-                           
-                            <input type="text" id="search" placeholder="Write here..." class="text">
-                        </label>
-                        
-                            </div>
-                             <div class="col-xs-12 col-sm-5">
-                            <div id="checkApis">
-                                <input type="checkbox" name="api" value="Youtube" checked id="CheckYoutube"> Youtube<br>
-                                <input type="checkbox" name="api" value="Behance" id="CheckBehance"> Behance<br>
-                                <input type="checkbox" name="api" value="Unsplash" id="CheckUnsplash"> Unsplash<br>
-                                <input type="checkbox" name="api" value="ColourLovers" id="CheckColours"> ColourLovers
-                                 </div></div>
-                            
-                <div class="col-xs-6 col-sm-3">
-                         <input type="submit" value="Magic!"  class=" btn-blue">
-                             </div></div>
-                    </form>
-                 
-                </div>/</div>
-               
-            <h3 id="erros"></h3>
-           
-            <div class="row">
-                <div id="resultsYoutube" class="col-xs-12 col-md-4"></div>
-                <div id="resultsBehance" class="col-xs-12 col-md-4"></div>
-                <div id="resultsUnsplash" class="col-xs-12 col-md-4"></div>
-                <div id="resultsColours" class="col-xs-12 col-md-3"></div>
+                <div class="col-xs-12">
+                    <img class="margin_bot" src="assets/images/Ativo%2012logo.svg">
+                </div>
             </div>
-       
-        </section>
-        <!-- scripts -->
-        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-        <script src="js/app.js"></script>
-        <script src="https://apis.google.com/js/client.js?onload=init"></script>
-    </body>
-</html>
 
+        </section>
+    </div>
+    <!--<div class="row around-xs">-->
+    <!-- <div class="col-xs-12">-->
+    <section class="section-resized">
+        <form action="#">
+            <div class="row start-xs bottom-xs between-sm ">
+
+                <div class="col-xs-12 col-sm-1">
+
+                    <div class="dropdown">
+                        <button class="dropbtn ">+</button>
+                        <div class="dropdown-content">
+                            <div id="checkApis">
+                                <input type="checkbox" name="api" value="Youtube" checked id="CheckYoutube"> Youtube
+                                <br>
+                                <input type="checkbox" name="api" value="Behance" id="CheckBehance"> Behance
+                                <br>
+                                <input type="checkbox" name="api" value="Unsplash" id="CheckUnsplash"> Unsplash
+                                <br>
+                                <input type="checkbox" name="api" value="ColourLovers" id="CheckColours"> ColourLovers
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-5">
+                    <label class="input-anim">
+
+                        <input type="text" id="search" placeholder="Write here..." class="text">
+                    </label>
+
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <input type="submit" value="MAGIC!" class=" btn-purple text-bold">
+                </div>
+            </div>
+        </form>
+
+        <!--  </div>-->
+        <!--  </div>-->
+
+        <h3 id="erros"></h3>
+
+        <div class="row">
+            <div id="resultsYoutube" class="col-xs-12 col-md-4">
+
+                <img class="results" src="assets/images/ycolumn.svg">
+            </div>
+            <div id="resultsBehance" class="col-xs-12 col-md-4">
+
+                <img class="results" src="assets/images/column.svg">
+            </div>
+            <div id="resultsUnsplash" class="col-xs-12 col-md-4">
+
+
+                <img class="results" src="assets/images/ucolumn.svg">
+            </div>
+            <div id="resultsColours" class="col-xs-12 col-md-3"></div>
+
+
+        </div>
+
+    </section>
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+</body>
+
+</html>
