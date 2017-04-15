@@ -149,14 +149,19 @@
         margin-top: 5vh;
     }
     
+    .results_image {
+        &:hover {
+            transition: all 0.2s ease-in-out;
+            opacity: 0.3;
+        }
+    }
+    
     .results_responsive {
-      
         width: 100%;
-      
     }
-
-.results_links {
-      
-      
-        color:$black;
+    
+    .results_links {
+        color: $black;
     }
+    
+   

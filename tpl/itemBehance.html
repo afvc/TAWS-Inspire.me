@@ -1,10 +1,14 @@
-<div class="item">
-   
-    <a href="{{url}}" target="_blank"  class="text results_links text-bold">
+<div class="item results_container">
+
+    <a href="{{url}}" target="_blank" class=" text results_links text-bold">
         <p>{{title}}</p>
-         
-        <img src="{{imagem}}" class="results_responsive"  alt="Project Image">
-        <p>{{criador}}</p>
-        <p>{{visualizacoes}}</p>
+
+        <img src="{{imagem}}" class="results_responsive results_image" alt="Project Image">
+        <div class="results_overlay " style="position: absolute; top: 0; left: 0; height: 100% width: 100%;"></div>
     </a>
+    <div class="row center-xs between-xs">
+        <p class="col-xs-6">{{criador}}</p>
+        <p class="col-xs-6 end-xs">{{visualizacoes}}</p>
+    </div>
+
 </div>
