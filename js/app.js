@@ -1,3 +1,6 @@
+
+
+
 $(function(){
     console.log("função main");
     var botoes = $("#checkApis");
@@ -81,10 +84,9 @@ $(function(){
                  
                  
                 $.ajax({
-                    url: searchLink_Unsplash+"?tags="+encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
+                    url: searchLink_Unsplash+encodeURIComponent($("#search").val()).replace(/%20/g, ","),
                     dataType: "jsonp",
                     timeout: 1500,
-                    //jsonpCallback: processaDadosB,
                     success: processaDadosU,
                     error: ErroUnsplash
                 });   
@@ -94,14 +96,14 @@ $(function(){
              
              
              //COLOURLOVERS---------------------------------------------------
-             if($("#CheckColours").is( ":checked" )){
+             /*if($("#CheckColours").is( ":checked" )){
                  $.ajax({
                     url: searchLink_ColourL+encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
                     dataType: "jsonp",
                     success: processaDadosC,
                     error: ErroColourL
                 });
-             }
+             }*/
          }
      });
 })
@@ -118,10 +120,7 @@ function tplawesome(e, t) {
 
 //YOUTUBE-------------------------------------------------------
 
-function resetVideoHeight(){
-    $(".video").css("max-width", "500px");
-    $(".video").css("width", "100%");
-}
+ 
 
 function init() {
      gapi.client.setApiKey("AIzaSyAX9MNHEELUlStowPlfYfbzpCoIwUBgx2M");
@@ -161,7 +160,7 @@ function ErroBehance(response){
 
  
 //UNSPLASH-------------------------------------------------------
-var searchLink_Unsplash = "https://unsplash.com/search";
+var searchLink_Unsplash = "https://source.unsplash.com/?";
 
 function processaDadosU(response){
     console.log(response);
