@@ -1,3 +1,6 @@
+
+
+
 $(function(){
     console.log("função main");
     var botoes = $("#checkApis");
@@ -77,20 +80,30 @@ $(function(){
              }
              
              //UNSPLASH-------------------------------------------------------
-             if($("#CheckUnsplash").is( ":checked" )){
+           /*  if($("#CheckUnsplash").is( ":checked" )){
                  
-             }
+                 
+                $.ajax({
+                    url: searchLink_Unsplash+encodeURIComponent($("#search").val()).replace(/%20/g, ","),
+                    dataType: "jsonp",
+                    timeout: 1500,
+                    success: processaDadosU,
+                    error: ErroUnsplash
+                });   
+                 
+                 
+             }*/
              
              
              //COLOURLOVERS---------------------------------------------------
-             if($("#CheckColours").is( ":checked" )){
+             /*if($("#CheckColours").is( ":checked" )){
                  $.ajax({
                     url: searchLink_ColourL+encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
                     dataType: "jsonp",
                     success: processaDadosC,
                     error: ErroColourL
                 });
-             }
+             }*/
          }
      });
 })
@@ -107,10 +120,7 @@ function tplawesome(e, t) {
 
 //YOUTUBE-------------------------------------------------------
 
-function resetVideoHeight(){
-    $(".video").css("max-width", "500px");
-    $(".video").css("width", "100%");
-}
+ 
 
 function init() {
      gapi.client.setApiKey("AIzaSyAX9MNHEELUlStowPlfYfbzpCoIwUBgx2M");
@@ -143,16 +153,40 @@ function processaDadosB(response){
 ;}
 
 function ErroBehance(response){
-    if(response==null){  
+   /* if(response==null){  */
         $("#resultsBehance").html("O Behance não conseguiu encontrar projectos");
-    }
+    //}
 }
 
  
 //UNSPLASH-------------------------------------------------------
+var searchLink_Unsplash = "https://source.unsplash.com/?";
+
+function processaDadosU(response){
+    console.log(response);
+    var results = response.result;
+    $("#resultsUnsplash").html("");
+        $.each(response.photos, function (index, item) {
+            $.get("tpl/itemUnsplash.html", function (data) {
+                $(tplawesome(data, [{
+                    "imagem":item.urls.regular,
+                    "criador":item.user.name,
+                              
+                }])).appendTo("#resultsUnsplash");
+
+            });
+        });
+;}
+
+
+function ErroUnsplash(response){
+    if(response==null){
+        $("#resultsUnsplash").html("O Unsplash não conseguiu encontrar fotografias");
+    }
+}
 
 //COLOURLOVERS---------------------------------------------------
-var searchLink_ColourL="http://www.colourlovers.com/api/palettes/keywords/search/";
+/*var searchLink_ColourL="http://www.colourlovers.com/api/palettes/keywords/search/";
     
 function processaDadosC(response){
     console.log(response);
@@ -175,4 +209,4 @@ function ErroColourL(response){
         $("#resultsColours").html("O ColourLovers não conseguiu encontrar projectos");
     }
 }
-
+*/
