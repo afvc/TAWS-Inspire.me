@@ -186,7 +186,7 @@ function ErroUnsplash(response){
 }
 
 //COLOURLOVERS---------------------------------------------------
-var searchLink_ColourL="http://www.colourlovers.com/api/palettes/keywords/search/";
+/*var searchLink_ColourL="http://www.colourlovers.com/api/palettes/keywords/search/";
     
 function processaDadosC(response){
     console.log(response);
@@ -209,4 +209,4 @@ function ErroColourL(response){
         $("#resultsColours").html("O ColourLovers não conseguiu encontrar projectos");
     }
 }
-
+*/
