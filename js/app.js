@@ -80,7 +80,7 @@ $(function(){
              }
              
              //UNSPLASH-------------------------------------------------------
-             if($("#CheckUnsplash").is( ":checked" )){
+           /*  if($("#CheckUnsplash").is( ":checked" )){
                  
                  
                 $.ajax({
@@ -92,7 +92,7 @@ $(function(){
                 });   
                  
                  
-             }
+             }*/
              
              
              //COLOURLOVERS---------------------------------------------------
@@ -153,9 +153,9 @@ function processaDadosB(response){
 ;}
 
 function ErroBehance(response){
-    if(response==null){  
+   /* if(response==null){  */
         $("#resultsBehance").html("O Behance não conseguiu encontrar projectos");
-    }
+    //}
 }
 
  
