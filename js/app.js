@@ -11,98 +11,81 @@
 
          if ($("#CheckYoutube").is(":checked")) {
              check++;
-             console.log("verifica youtube");
+             // console.log("verifica youtube");
          }
          if ($("#CheckBehance").is(":checked")) {
              check++;
-             console.log("verifica behance");
+             //console.log("verifica behance");
          }
          if ($("#CheckPixabay").is(":checked")) {
              check++;
              // console.log("verifica unsplash");
          }
-         if ($("#CheckColours").is(":checked")) {
-             check++;
-             console.log("verifica colours");
-         }
 
-         if (check > 3) {
-             $("#erros").html("You cannot search so many sources at once.");
-             console.log("erro + que 3 selecionadas");
-         } else {
-             // console.log("chama pedidos");
 
-             //YOUTUBE----------------------------------------------
-             if ($("#CheckYoutube").is(":checked")) {
-                 var request = gapi.client.youtube.search.list({
-                     part: "snippet",
-                     type: "video",
-                     q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"), //search input value
-                     maxResults: resultsmax+5,
-                     order: "viewCount",
-                     publishedAfter: "1999-01-01T00:00:00Z"
-                 });
-                 // execute the request
-                 request.execute(function (response) {
-                     console.log(response);
-                     var results = response.result;
-                     $("#resultsYoutube").html("")
-                     $.each(results.items, function (index, item) {
+         // console.log("chama pedidos");
 
-                         $.get("tpl/itemYoutube.html", function (data) {
+         //YOUTUBE----------------------------------------------
+         if ($("#CheckYoutube").is(":checked")) {
+             var request = gapi.client.youtube.search.list({
+                 part: "snippet",
+                 type: "video",
+                 q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"), //search input value
+                 maxResults: resultsmax + 5,
+                 order: "viewCount",
+                 publishedAfter: "1999-01-01T00:00:00Z"
+             });
+             // execute the request
+             request.execute(function (response) {
+                 console.log(response);
+                 var results = response.result;
+                 $("#resultsYoutube").html("")
+                 $.each(results.items, function (index, item) {
 
-                             $("#resultsYoutube").append(tplawesome(data, [{
-                                 "title": item.snippet.title,
-                                 "videoid": item.id.videoId,
-                                 "url": item.url
+                     $.get("tpl/itemYoutube.html", function (data) {
+
+                         $("#resultsYoutube").append(tplawesome(data, [{
+                             "title": item.snippet.title,
+                             "videoid": item.id.videoId,
+                             "url": item.url
                              }]));
 
-                         });
                      });
-
                  });
 
-
-             }
-
-             //BEHANCE-------------------------------------------------------
-             if ($("#CheckBehance").is(":checked")) {
-                 $.ajax({
-                     url: searchLink_Behance + "?tags=" + "&api_key=" + clientID_Behance + "&per_page=" + resultsmax + encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
-                     dataType: "jsonp",
-                     timeout: 1500,
-                     //jsonpCallback: processaDadosB,
-                     success: processaDadosB,
-                     error: ErroBehance
-                 });
-             }
-
-             //UNSPLASH-------------------------------------------------------
-             if ($("#CheckPixabay").is(":checked")) {
+             });
 
 
-                 /*                $.ajax({
-                                     url: searchLink_Pixabay+encodeURIComponent($("#search").val()).replace(/%20/g, ","),
-                                     dataType: "json",
-                                     timeout: 1500,
-                                     success: processaDadosU,
-                                     error: ErroUnsplash
-                                 }); */
+         }
 
+         //BEHANCE-------------------------------------------------------
+         if ($("#CheckBehance").is(":checked")) {
+             $.ajax({
+                 url: searchLink_Behance + "?tags=" + "&api_key=" + clientID_Behance + "&per_page=" + resultsmax + encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
+                 dataType: "jsonp",
+
+                 data {
+
+                     api_key: clientID_Behance;
+
+                 },
+                 timeout: 1500,
+                 //jsonpCallback: processaDadosB,
+                 success: processaDadosB,
+                 error: ErroBehance
+             });
+         }
+
+         //UNSPLASH-------------------------------------------------------
+         if ($("#CheckPixabay").is(":checked")) {
 
 
 
-                 var url = "http://source.unsplash.com/featured/?" + encodeURIComponent($("#search").val()).replace(/%20/g, ",");
-                 $.get(url).done(processaDadosU).fail(
-                     function () {
-                         console.log("erro");
-                     });
 
-
-             }
          }
      });
  });
+
 
 
  function tplawesome(e, t) {
