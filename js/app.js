@@ -1,5 +1,5 @@
  resultsmax = 3;
-
+ var inc = 1;
  $(function () {
      // console.log("função main");
      var botoes = $("#checkApis");
@@ -59,22 +59,42 @@
          }
 
          //BEHANCE-------------------------------------------------------
-         if ($("#CheckBehance").is(":checked")) {
+         function PedidoBehance(numpag) {
+             var tatas = searchLink_Behance + "?tags=" + encodeURIComponent($("#search").val()).replace(/%20/g, "+");
              $.ajax({
-                 url: searchLink_Behance + "?tags=" + "&api_key=" + clientID_Behance + "&per_page=" + resultsmax + encodeURIComponent($("#search").val()).replace(/%20/g, "+"),
+
                  dataType: "jsonp",
-
-                 data {
-
-                     api_key: clientID_Behance;
-
+                 data: {
+                     api_key: clientID_Behance
                  },
                  timeout: 1500,
+                 url: tatas + "&per_page=" + resultsmax + "&page=" + numpag,
                  //jsonpCallback: processaDadosB,
                  success: processaDadosB,
                  error: ErroBehance
              });
          }
+
+
+         if ($("#CheckBehance").is(":checked")) {
+
+             //PedidoBehance(inc);
+         }
+         
+         //BE-BUTTON-------------------------------------------------------
+         $("#resultsBehance").append('<button type="button" class="btn-purple text text-lightest text-bold button__behance">Show me more!</button>');
+
+
+         //BE-NEXTPAGE-------------------------------------------------------
+         $(".button__behance").click(function () {
+             inc++;
+             PedidoBehance(inc);
+             console.log("batata");
+             console.log(inc);
+             
+             
+
+         });
 
          //UNSPLASH-------------------------------------------------------
          if ($("#CheckPixabay").is(":checked")) {
@@ -84,6 +104,10 @@
 
          }
      });
+
+
+
+
  });
 
 
@@ -114,7 +138,10 @@
  var searchLink_Behance = "https://api.behance.net/v2/projects";
  var clientID_Behance = "65L6CsPc3nuLXkaXxRVb2eZ9HKgRHrJE";
 
+
+
  function processaDadosB(response) {
+
      console.log(response);
      var results = response.result;
      $("#resultsBehance").html("");
@@ -129,14 +156,23 @@
                 }])).appendTo("#resultsBehance");
 
          });
-     });;
+     });
+
+
+
+
  }
+
 
  function ErroBehance(response) {
      /* if(response==null){  */
      $("#resultsBehance").html("O Behance não conseguiu encontrar projectos");
      //}
  }
+
+
+
+
 
 
  //UNSPLASH-------------------------------------------------------
