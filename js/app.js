@@ -78,11 +78,9 @@
 
          if ($("#CheckBehance").is(":checked")) {
 
-             //PedidoBehance(inc);
+             PedidoBehance(inc);
+             CriaBot();
          }
-         
-         //BE-BUTTON-------------------------------------------------------
-         $("#resultsBehance").append('<button type="button" class="btn-purple text text-lightest text-bold button__behance">Show me more!</button>');
 
 
          //BE-NEXTPAGE-------------------------------------------------------
@@ -91,8 +89,8 @@
              PedidoBehance(inc);
              console.log("batata");
              console.log(inc);
-             
-             
+
+
 
          });
 
@@ -110,7 +108,11 @@
 
  });
 
+ function CriaBot() {
+     //BE-BUTTON-------------------------------------------------------
+     $("#resultsBehance").append('<button type="button" class="btn-purple text text-lightest text-bold button__behance">Show me more!</button>');
 
+ }
 
  function tplawesome(e, t) {
      res = e;
@@ -192,10 +194,11 @@
                 }])).appendTo("#resultsPixabay");
 
          });
-     });;
+     });
+     
  }
 
-
+ 
  function ErroPixabay(response) {
      if (response == null) {
          $("#resultsPixabay").html("O Unsplash não conseguiu encontrar fotografias");
