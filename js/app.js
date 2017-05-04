@@ -30,6 +30,7 @@
 
          //YOUTUBE----------------------------------------------
          if ($("#CheckYoutube").is(":checked")) {
+              $(".button__youtube").removeClass("hidden");
              var request = gapi.client.youtube.search.list({
                  part: "snippet",
                  type: "video",
@@ -84,16 +85,16 @@
 
              PedidoBehance(inc);
 
+             $(".button__behance").removeClass("hidden");
 
          }
-         
+
 
          //BE-NEXTPAGE-------------------------------------------------------
-         $(".button__behance").click(function () {
+         $(".button__behance").click(function () {     
              inc++;
              PedidoBehance(inc);
-             console.log("batata");
-             console.log(inc);
+           
 
 
 
@@ -108,14 +109,7 @@
  });
 
 
-
-
- function CriaBot() {
-     //BE-BUTTON-------------------------------------------------------
-     $("#resultsBehance").append('<button type="button" class="btn-purple text text-lightest text-bold button__behance">Show me more!</button>');
-
- }
-
+ 
  function tplawesome(e, t) {
      res = e;
      for (var n = 0; n < t.length; n++) {
@@ -163,8 +157,7 @@
          });
 
      });
-     CriaBot();
-
+   
 
 
 
