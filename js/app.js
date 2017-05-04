@@ -1,5 +1,8 @@
  resultsmax = 3;
  var inc = 1;
+
+
+
  $(function () {
      // console.log("função main");
      var botoes = $("#checkApis");
@@ -73,15 +76,17 @@
                  success: processaDadosB,
                  error: ErroBehance
              });
+             // CriaBot();
          }
 
 
          if ($("#CheckBehance").is(":checked")) {
 
              PedidoBehance(inc);
-             CriaBot();
-         }
 
+
+         }
+         
 
          //BE-NEXTPAGE-------------------------------------------------------
          $(".button__behance").click(function () {
@@ -94,19 +99,16 @@
 
          });
 
-         //UNSPLASH-------------------------------------------------------
-         if ($("#CheckPixabay").is(":checked")) {
 
 
-
-
-         }
      });
 
 
 
-
  });
+
+
+
 
  function CriaBot() {
      //BE-BUTTON-------------------------------------------------------
@@ -157,8 +159,11 @@
                  "visualizacoes": item.stats.views + " Views"
                 }])).appendTo("#resultsBehance");
 
+
          });
+
      });
+     CriaBot();
 
 
 
@@ -195,10 +200,10 @@
 
          });
      });
-     
+
  }
 
- 
+
  function ErroPixabay(response) {
      if (response == null) {
          $("#resultsPixabay").html("O Unsplash não conseguiu encontrar fotografias");
