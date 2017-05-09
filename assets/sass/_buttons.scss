@@ -43,6 +43,23 @@
     }
 }
 
+
+
+.btn-green {
+   
+    @extend .btn-default;
+    background: $green-light;
+   
+  
+    &:hover {
+        transition: all 0.2s ease-in-out;
+        background: $orange;
+     
+        opacity: 1;
+       
+    }
+}
+
 .url_btn {
     margin: 0;
     padding: 0;
