@@ -147,11 +147,9 @@
     
     .results {
         margin-top: 5vh;
-        
     }
     
     .results_image {
-       
         &:hover {
             transition: all 0.2s ease-in-out;
             opacity: 0.3;
@@ -160,7 +158,6 @@
     
     .results_responsive {
         width: 100%;
-         
     }
     
     .results__smallmargin {
@@ -170,4 +167,124 @@
     .results_links {
         color: $black;
     }
+    /*------------------------------------*\
+  #ORDERS
+\*------------------------------------*/
     
+    .order-xs-1 {
+        order: 1;
+        @include breakpoint ($min: xs) {
+            order: 1;
+        }
+        @include breakpoint ($min: sm) {
+            order: 1;
+        }
+         @include breakpoint ($min: md) {
+            order: 1;
+        }
+    }
+    
+    .order-xs-3 {
+        order: 7;
+        @include breakpoint ($min: xs) {
+            order: 3;
+        }
+        @include breakpoint ($min: sm) {
+            order: 3;
+        }
+          @include breakpoint ($min: md) {
+            order: 3;
+        }
+    }
+    
+    .order-xs-5 {
+        order: 5;
+        @include breakpoint ($min: xs) {
+            order: 5;
+        }
+        @include breakpoint ($min: sm) {
+            order: 5;
+        }
+         @include breakpoint ($min: md) {
+            order: 5;
+        }
+    }
+    
+    .order-xs-2 {
+        order: 4;
+        @include breakpoint ($min: xs) {
+            order: 2;
+        }
+        @include breakpoint ($min: sm) {
+            order: 2;
+        }
+           @include breakpoint ($min: md) {
+            order: 2;
+        }
+    }
+    
+    .order-xs-4 {
+        order: 2;
+        @include breakpoint ($min: xs) {
+            order: 4;
+        }
+        @include breakpoint ($min: sm) {
+            order: 4;
+        }
+           @include breakpoint ($min: md) {
+            order: 4;
+        }
+    }
+    
+    .order-xs-6 {
+        order: 6;
+        @include breakpoint ($min: xs) {
+            order: 6;
+        }
+        @include breakpoint ($min: sm) {
+            order: 6;
+        }
+         @include breakpoint ($min: md) {
+            order: 6;
+        }
+    }
+
+.order-xs-7 {
+        order: 3;
+        @include breakpoint ($min: xs) {
+            order:7;
+        }
+        @include breakpoint ($min: sm) {
+            order: 7;
+        }
+     @include breakpoint ($min: md) {
+            order: 7;
+        }
+    }
+
+.order-xs-8 {
+        order: 6;
+        @include breakpoint ($min: xs) {
+            order: 8;
+        }
+        @include breakpoint ($min: sm) {
+            order: 8;
+        }
+      @include breakpoint ($min: md) {
+            order: 8;
+        }
+    }
+
+
+.order-xs-9 {
+        order: 6;
+        @include breakpoint ($min: xs) {
+            order: 9;
+        }
+        @include breakpoint ($min: sm) {
+            order: 9;
+        }
+     @include breakpoint ($min: md) {
+            order: 9;
+        }
+    }

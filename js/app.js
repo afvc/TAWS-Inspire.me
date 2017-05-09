@@ -1,4 +1,4 @@
- resultsmax = 3;
+ resultsmax = 4;
  inc=1;
 
  nextPageToken = "";
@@ -33,7 +33,7 @@
                  part: "snippet",
                  type: "video",
                  q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"), //search input value
-                 maxResults: resultsmax + 5,
+                 maxResults: resultsmax + 4,
                  order: "viewCount",
                  publishedAfter: "1999-01-01T00:00:00Z",
                   "pageToken": nextPageToken 

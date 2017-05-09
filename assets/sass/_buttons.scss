@@ -32,6 +32,16 @@
 
 .btn-purple {
     @extend .btn-default;
+      @include breakpoint ($min: xs) {
+              margin-top: 50px;
+        }
+        @include breakpoint ($min: sm) {
+             margin-top: 50px;
+        }
+         @include breakpoint ($min: md) {
+             margin-top: 50px;
+        }
+  
     background: $purple;
   
     &:hover {
@@ -49,6 +59,39 @@
    
     @extend .btn-default;
     background: $green-light;
+   
+  
+    &:hover {
+        transition: all 0.2s ease-in-out;
+        background: $orange;
+     
+        opacity: 1;
+       
+    }
+}
+
+
+.btn-blue {
+   
+    @extend .btn-default;
+    background: $blue;
+   
+  
+    &:hover {
+        transition: all 0.2s ease-in-out;
+        background: $green-light;
+     
+        opacity: 1;
+       
+    }
+}
+
+
+
+.btn-red {
+   
+    @extend .btn-default;
+    background: $red;
    
   
     &:hover {
