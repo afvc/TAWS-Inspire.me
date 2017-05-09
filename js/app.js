@@ -1,9 +1,9 @@
  resultsmax = 3;
- var inc = 1;
+ inc=1;
 
-
-
+ nextPageToken = "";
  $(function () {
+ 
      // console.log("função main");
      var botoes = $("#checkApis");
      $("form").on("submit", function (e) {
@@ -26,42 +26,71 @@
          }
 
 
-         // console.log("chama pedidos");
-
          //YOUTUBE----------------------------------------------
-         if ($("#CheckYoutube").is(":checked")) {
-              $(".button__youtube").removeClass("hidden");
+ function PedidoYoutube(pageToken) {
+
              var request = gapi.client.youtube.search.list({
                  part: "snippet",
                  type: "video",
                  q: encodeURIComponent($("#search").val()).replace(/%20/g, "+"), //search input value
                  maxResults: resultsmax + 5,
                  order: "viewCount",
-                 publishedAfter: "1999-01-01T00:00:00Z"
+                 publishedAfter: "1999-01-01T00:00:00Z",
+                  "pageToken": nextPageToken 
              });
+
+             if (pageToken) {
+                 request.pageToken = pageToken;
+
+             }
              // execute the request
              request.execute(function (response) {
                  console.log(response);
                  var results = response.result;
-                 $("#resultsYoutube").html("")
+              nextPageToken = response.nextPageToken;
+                 $("#resultsYoutube").html("");
                  $.each(results.items, function (index, item) {
 
                      $.get("tpl/itemYoutube.html", function (data) {
+
 
                          $("#resultsYoutube").append(tplawesome(data, [{
                              "title": item.snippet.title,
                              "videoid": item.id.videoId,
                              "url": item.url
+                           
                              }]));
+
+                         console.log(nextPageToken);
+
 
                      });
                  });
 
              });
-
-
          }
 
+
+         if ($("#CheckYoutube").is(":checked")) {
+             $(".button__youtube").removeClass("hidden");
+
+             PedidoYoutube(nextPageToken);
+         }
+
+
+
+
+
+
+         //YOU-NEXTPAGE-------------------------------------------------------
+         $(".button__youtube").click(function () {
+      
+             PedidoYoutube(nextPageToken);
+             
+            
+         });
+
+         
          //BEHANCE-------------------------------------------------------
          function PedidoBehance(numpag) {
              var tatas = searchLink_Behance + "?tags=" + encodeURIComponent($("#search").val()).replace(/%20/g, "+");
@@ -73,11 +102,10 @@
                  },
                  timeout: 1500,
                  url: tatas + "&per_page=" + resultsmax + "&page=" + numpag,
-                 //jsonpCallback: processaDadosB,
                  success: processaDadosB,
                  error: ErroBehance
              });
-             // CriaBot();
+
          }
 
 
@@ -91,14 +119,14 @@
 
 
          //BE-NEXTPAGE-------------------------------------------------------
-         $(".button__behance").click(function () {     
+         $(".button__behance").click(function () {
              inc++;
              PedidoBehance(inc);
-           
-
-
-
          });
+
+
+
+
 
 
 
@@ -109,7 +137,7 @@
  });
 
 
- 
+
  function tplawesome(e, t) {
      res = e;
      for (var n = 0; n < t.length; n++) {
@@ -157,7 +185,7 @@
          });
 
      });
-   
+
 
 
 
