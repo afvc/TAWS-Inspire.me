@@ -150,6 +150,7 @@
     }
     
     .results_image {
+       
         &:hover {
             transition: all 0.2s ease-in-out;
             opacity: 0.3;
@@ -158,10 +159,14 @@
     
     .results_responsive {
         width: 100%;
+         
+    }
+    
+    .results__smallmargin {
+        margin-top: 1.45vh;
     }
     
     .results_links {
         color: $black;
     }
     
-   
