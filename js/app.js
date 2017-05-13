@@ -1,12 +1,12 @@
- resultsmax = 4;
- inc=1;
+var resultsmax = 4;
+var inc=1;
+var pag=1;
+var  nextPageToken = "";
 
- nextPageToken = "";
  $(function () {
- 
-     // console.log("função main");
      var botoes = $("#checkApis");
      $("form").on("submit", function (e) {
+         
          var check = 0;
          e.preventDefault(); //the default is sumbission
          //console.log(check);
@@ -14,20 +14,22 @@
 
          if ($("#CheckYoutube").is(":checked")) {
              check++;
+             PedidoYoutube(nextPageToken);
              // console.log("verifica youtube");
          }
          if ($("#CheckBehance").is(":checked")) {
              check++;
+             PedidoBehance(inc);
              //console.log("verifica behance");
          }
          if ($("#CheckPixabay").is(":checked")) {
              check++;
-             // console.log("verifica unsplash");
+             // console.log("verifica pixabay");
          }
 
 
          //YOUTUBE----------------------------------------------
- function PedidoYoutube(pageToken) {
+            function PedidoYoutube(pageToken) {
 
              var request = gapi.client.youtube.search.list({
                  part: "snippet",
@@ -58,37 +60,12 @@
                              "title": item.snippet.title,
                              "videoid": item.id.videoId,
                              "url": item.url
-                           
                              }]));
-
                          console.log(nextPageToken);
-
-
                      });
                  });
-
              });
          }
-
-
-         if ($("#CheckYoutube").is(":checked")) {
-             $(".button__youtube").removeClass("hidden");
-
-             PedidoYoutube(nextPageToken);
-         }
-
-
-
-
-
-
-         //YOU-NEXTPAGE-------------------------------------------------------
-         $(".button__youtube").click(function () {
-      
-             PedidoYoutube(nextPageToken);
-             
-            
-         });
 
          
          //BEHANCE-------------------------------------------------------
@@ -105,35 +82,37 @@
                  success: processaDadosB,
                  error: ErroBehance
              });
-
          }
-
-
-         if ($("#CheckBehance").is(":checked")) {
-
-             PedidoBehance(inc);
-
-             $(".button__behance").removeClass("hidden");
-
-         }
-
-
-         //BE-NEXTPAGE-------------------------------------------------------
-         $(".button__behance").click(function () {
-             inc++;
-             PedidoBehance(inc);
+         
+          //PIXABAY-----------------------------------------------------
+         function PedidoPixabay(pag) {
+                $.get(searchLink_Pixabay1+encodeURIComponent($("#search").val()).replace(/%20/g, ",")+searchLink_Pixabay2+pag ,processaDadosU); 
+            } 
+         
+           if($("#CheckPixabay").is( ":checked" )){
+            PedidoPixabay(pag);
+             $(".button__pixabay").removeClass("hidden");
+           }
+         
+         //NEXT PAGE -------------------------------------------------
+           $(".button__more").click(function () {
+                window.scrollTo(0, 0);
+                if ($("#CheckYoutube").is(":checked")) {
+                    PedidoYoutube(nextPageToken);
+                }
+                if ($("#CheckBehance").is(":checked")) {
+                    inc++;
+                    PedidoBehance(inc);
+                }
+                if ($("#CheckPixabay").is(":checked")) {
+                     pag++;
+                     PedidoPixabay(pag);
+                }
          });
-
-
-
-
-
-
-
+         
+     
+     $(".button__more").removeClass("hidden");
      });
-
-
-
  });
 
 
@@ -180,16 +159,9 @@
                  "criador": item.owners[0].display_name,
                  "visualizacoes": item.stats.views + " Views"
                 }])).appendTo("#resultsBehance");
-
-
          });
-
      });
-
-
-
-
- }
+}
 
 
  function ErroBehance(response) {
@@ -198,35 +170,65 @@
      //}
  }
 
+//Pixabay-------------------------------------------------------
+var searchLink_Pixabay1 = "https://pixabay.com/api/?key=3698801-7c998e5768fefdb62fc5f90fc&q=";
+var searchLink_Pixabay2 = "&image_type=photo&per_page=6&page=";
 
-
-
-
-
- //UNSPLASH-------------------------------------------------------
- var searchLink_Pixabay = "http://source.unsplash.com/featured/?";
-
- function processaDadosU(response) {
-     console.log(response);
-     console.log("batata");
-     var results = response.result;
-     $("#resultsUnsplash").html("");
-     $.each(response.photos, function (index, item) {
-         $.get("tpl/itemPixabay.html", function (data) {
-             $(tplawesome(data, [{
-                 "imagem": item.urls.regular,
-                 "criador": item.user.name,
-
+function processaDadosU(response){
+    console.log(response);
+    var results = response.result;
+    $("#resultsPixabay").html("");
+        $.each(response.hits, function (index, item) {
+            $.get("tpl/itemPixabay.html", function (data) {
+                $(tplawesome(data, [{
+                    "imagem":item.webformatURL,
+                    "criador":item.user,
+                    "url":item.pageURL          
                 }])).appendTo("#resultsPixabay");
 
-         });
+            });
+        });
+;}
+
+function ErroPixabay(response){
+        $("#resultsPixabay").html("O Pixabay não conseguiu encontrar fotografias");
+}
+
+//DICIONARIO -----------------------------------------------
+var linkSinonimos1 = "http://words.bighugelabs.com/api/2/b6ac1104a170525e3a731dcc57bbb275/";
+var linkSinonimos2 = "/json?callback=ProcessaSugestoes";
+
+ $(function () {
+     $("form").on("submit", function (e) {
+        $.get(linkSinonimos1+ encodeURIComponent($("#search").val()).replace(/%20/g, "+") +linkSinonimos2);
+    });
+ });
+
+function ProcessaSugestoes(response){
+    console.log(response);
+    //var ind = 0;
+    
+    $("#sugestoes").html("Did you mean: " + response.noun.syn[0] + ",     "+ response.noun.syn[1] + ",     "+ response.noun.syn[2]);
+    
+     /*$.each(response.nouns.syn, function (index, item) {
+          console.log("1");
+        $.get("tpl/itemSinonimos.html", function (data) {
+            console.log("2");
+            $(tplawesome(data, [{
+                "palavra":item 
+            }])).appendTo("#sugestoes");
+            
+                console.log(item);
+        });
+         
+        ind++;
+        if(ind==3){
+            break;
+        }
      });
+}
 
- }
-
-
- function ErroPixabay(response) {
-     if (response == null) {
-         $("#resultsPixabay").html("O Unsplash não conseguiu encontrar fotografias");
-     }
- }
+function SugestaoPalavras(word){
+    $("form").submit(word);
+}*/
+}
