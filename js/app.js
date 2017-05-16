@@ -195,7 +195,7 @@ function ErroPixabay(response){
 }
 
 //DICIONARIO -----------------------------------------------
-var linkSinonimos1 = "http://words.bighugelabs.com/api/2/b6ac1104a170525e3a731dcc57bbb275/";
+var linkSinonimos1 = "https://words.bighugelabs.com/api/2/b6ac1104a170525e3a731dcc57bbb275/";
 var linkSinonimos2 = "/json?callback=ProcessaSugestoes";
 
  $(function () {
