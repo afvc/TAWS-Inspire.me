@@ -208,7 +208,7 @@ function ProcessaSugestoes(response){
     console.log(response);
     //var ind = 0;
     
-    $("#sugestoes").html("Did you mean: " + response.noun.syn[0] + ",     "+ response.noun.syn[1] + ",     "+ response.noun.syn[2]);
+    $("#sugestoes").html("We suggest these words for the next search: " + response.noun.syn[0] + ",     "+ response.noun.syn[1] + ",     "+ response.noun.syn[2]);
     
      /*$.each(response.nouns.syn, function (index, item) {
           console.log("1");
